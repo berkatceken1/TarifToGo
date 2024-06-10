@@ -40,7 +40,7 @@ export default function SignupScreen({props}) {
             password
         };
         if (nameVerify && emailVerify && mobileVerify && genderVerify && professionVerify && passwordVerify) {
-        axios.post("http://192.168.1.167:5001/signup", userData)
+        axios.post("http://10.80.7.1:5001/signup", userData)
         .then((res)=>{console.log(res.data)
             if (res.data.status === 'ok') {
                 Toast.show({
@@ -94,7 +94,8 @@ export default function SignupScreen({props}) {
         setEmail(emailVar);
         setEmailVerify(false);
 
-        if (/^[\w.%+-]+@[\w.-]+\.[a-zA-Z]{2,}$/.test(emailVar)) {
+        if (/^[\w.%+-]+@(gmail\.com|yahoo\.com|outlook\.com|hotmail\.com)$/
+.test(emailVar)) {
             setEmail(emailVar)
             setEmailVerify(true);
         }
@@ -141,7 +142,7 @@ export default function SignupScreen({props}) {
     }
 
     return (
-        <KeyboardAvoidingView style={{ flex: 1 }} behavior={Platform.OS === "ios" ? "padding" : null} >
+        <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps={"always"} >
             <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
                 <View className="bg-white h-full w-full">
                     <StatusBar style="light" />
@@ -355,7 +356,7 @@ export default function SignupScreen({props}) {
                     </View>
                 </View>
             </TouchableWithoutFeedback>
-        </KeyboardAvoidingView>       
+        </ScrollView>
     );
 }
 

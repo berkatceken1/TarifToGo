@@ -35,7 +35,7 @@ import {
       const token = await AsyncStorage.getItem('token');
       console.log(token);
       axios
-        .post('http://192.168.1.167:5001/userdetails', {token: token})
+        .post('http://10.80.7.1:5001/userdetails', {token: token})
         .then(res => {
           // console.log(res.data);
           setUserData(res.data.data);

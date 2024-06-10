@@ -14,7 +14,6 @@ import WelcomeScreen from '../screens/WelcomeScreen';
 import RecipeDetailScreen from '../screens/RecipeDetailScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignupScreen from '../screens/SignupScreen';
-import UserDetailsScreen from '../screens/UserDetailsScreen';
 import DrawerContent from '../DrawerContent';
 import ProfileScreen from '../screens/ProfileScreen';
 import FoodBot from '../screens/FoodBot';
@@ -51,13 +50,6 @@ const StackNav = () => {
                 }}
             />
             <Stack.Screen name="Profile" component={ProfileScreen} />
-            <Stack.Screen
-                name="User"
-                component={UserDetailsScreen}
-                options={{
-                    headerShown: true,
-                }}
-            />
             <Stack.Screen name="RecipeDetails" component={RecipeDetailScreen} />
             <Stack.Screen name="Login" component={LoginNav} />
             <Stack.Screen name="FoodBot" component={FoodBot} />
@@ -80,7 +72,7 @@ const DrawerNav = () => {
             screenOptions={{
                 headerShown: false,
             }}>
-            <Drawer.Screen name="UserDetails" component={StackNav} />
+            <Drawer.Screen name="ProfileStack" component={StackNav} />
         </Drawer.Navigator>
     );
 };
@@ -122,3 +114,4 @@ export default function AppNavigation() {
         </NavigationContainer>
     );
 }
+

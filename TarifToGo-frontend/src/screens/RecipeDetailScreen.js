@@ -7,7 +7,7 @@ import { FireIcon, HeartIcon, Square3Stack3DIcon, UsersIcon } from 'react-native
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import Loading from '../components/loading';
-import YoutubeIFrame from 'react-native-youtube-iframe';
+// import YoutubeIFrame from 'react-native-youtube-iframe';
 import Animated, { FadeInDown, FadeIn } from 'react-native-reanimated';
 import { mealData } from '../constants';
 

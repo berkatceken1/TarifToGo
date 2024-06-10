@@ -20,7 +20,7 @@ export default function LoginScreen({props}) {
             email: email,
             password, 
         };
-        axios.post("http://192.168.1.167:5001/login", userData)
+        axios.post("http://10.80.7.1:5001/login", userData)
             .then(response => {
                 console.log(response.data);
                 if(response.data.status == 'ok') {
@@ -37,6 +37,7 @@ export default function LoginScreen({props}) {
                     })
                     AsyncStorage.setItem('token', response.data.data);
                     AsyncStorage.setItem('isLoggedIn', JSON.stringify(true));
+                    AsyncStorage.setItem('isGuest', JSON.stringify(false));
                     navigation.navigate('Home');
                 } else {
                     Toast.show({
@@ -54,7 +55,13 @@ export default function LoginScreen({props}) {
             .catch((error) => {
                 console.log(error);
             });
-    } 
+    }
+    
+    const handleGuestLogin = async() => {
+        await AsyncStorage.setItem('isGuest', JSON.stringify(true));
+        await AsyncStorage.setItem('isLoggedIn', JSON.stringify(true));
+        navigation.navigate('Home');
+    }
 
 
     return (
@@ -114,7 +121,7 @@ export default function LoginScreen({props}) {
                             <Animated.View entering={FadeInDown.delay(1000).duration(1000).springify()} style={styles.bottomButtonContainer}>
                                 <View style={styles.buttonContainer}>
                                     <TouchableOpacity
-                                        onPress={()=> {navigation.navigate('Home')}}
+                                        onPress={()=> handleGuestLogin()}
                                          style={styles.inBut2}>
                                         <FontAwesome 
                                             name="user-circle-o"

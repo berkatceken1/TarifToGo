@@ -15,6 +15,7 @@ import {RadioButton} from 'react-native-paper';
 import axios from 'axios';
 import {useRoute} from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
+import {useNavigation} from '@react-navigation/native';
 
 function UpdateProfile() {
   const [image, setImage] = useState('');
@@ -24,6 +25,7 @@ function UpdateProfile() {
   const [profession, setProfession] = useState('');
   const [mobile, setMobile] = useState('');
   const route = useRoute();
+  const navigation = useNavigation();
   // const selectPhoto = () => {
   //   ImagePicker.openPicker({
   //     width: 400,
@@ -61,7 +63,7 @@ function UpdateProfile() {
     };
     console.log(formdata);
     axios
-      .post('http://192.168.1.167:5001/update-user', formdata)
+      .post('http://10.80.7.1:5001/update-user', formdata)
       .then(res => {console.log(res.data)
         if(res.data.status=="Ok"){
           Toast.show({
@@ -82,7 +84,9 @@ function UpdateProfile() {
       <View>
         <View style={styles.header}>
           <View style={{flex: 1}}>
-            <Back name="arrow-back" size={30} style={styles.backIcon} />
+            <Back name="arrow-back" size={30} style={styles.backIcon}
+            onPress={() => navigation.goBack()}
+            />
           </View>
           <View style={{flex: 3}}>
             <Text style={styles.nameText}>Profili Güncelle</Text>
