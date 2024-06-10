@@ -5,4 +5,4 @@ Ardından TarifToGo-frontend kısmına gelip "npx expo start" yazılmalı böyle
 error: Use process(css).then(cb) to work with async plugins
 bu hata alındığında konsolda projenin frontend kısmına gelip npm install tailwindcss@3.3.2 yüklenmesi gerekir.
 
-HomeScreen, LoginScreen, ProfileScreen, SignupScreen, DrawerContent ve UpdateProfile sayfalarına axios.post('http://IPv4 Address') ilgili kısma yazılmalıdır.
+HomeScreen, LoginScreen, ProfileScreen, SignupScreen, DrawerContent ve UpdateProfile sayfalarına axios.post('http://IPAdress') ilgili kısma çalıştırılan bilgisayarın o anki kullandığı IPv4 Address'i yazılmalıdır.
